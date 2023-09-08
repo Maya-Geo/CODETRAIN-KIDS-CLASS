@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Flexbox</title>
+
+	<style type="text/css">
+		
+		.content{
+		display: flex;
+
+
+
+		}
+	</style>
+	<div class="Header-box" style="background-color: blue; height: 100px;">
+       <div style="display: flex; margin-left: 900px">
+       	<h1 style="padding: 14px">Home</h1>
+		<h1 style="padding: 14px">About</h1>
+		<h1 style="padding: 14px">Contact</h1>
+	</div>
+
+	<div class="Content">
+		<img src="https://static3.srcdn.com/wordpress/wp-content/uploads/2021/11/Mirabel-Madrigal-in-DIsneys-Encanto.jpg?q=50&fit=crop&w=943&h=500&dpr=1.5">
+
+		<img src="https://static0.cbrimages.com/wordpress/wp-content/uploads/2021/12/Dolores-Madrigal-In-Encanto.jpg?q=50&fit=crop&w=963&h=481&dpr=1.5">
+		
+	</div>
+
+
+	<div class="footer" style="background: blue; margin-top: 500px">
+		<h1 style="text-align: center;">Done by Joleen</h1>
+	</div>
+
+<!-- 	<style type="text/css">
+
+	.flexbox-container{
+	 	justify-content: center;
+	 	margin: 0;
+	 	align-items: center;
+	 	padding: 0;
+	 	display: 
+
+	 	;
+	 }
+
+	.row{
+	 	width: 100%;
+
+	}
+	
+   .items{
+    background-color: red;
+   	padding: 6px;
+   	width: 200px;
+   	height: 150px;
+   	font-size: 15px;
+   	margin: 10px;
+   	color: white;
+   	text-align: center;
+
+   }
+		
+   /*.item{
+   	background-color: pink;
+   	padding: 6px;
+   	width: 200px;
+   	height: 150px;
+   	font-size: 15px;
+   	margin: 10px;
+   	color: white;
+   	text-align: center;
+   }*/
+
+
+
+	</style>
+</head>
+<body>
+
+	<div class="flexbox-container">
+		<div class="row">
+			<h1 class="items">First box</h1>
+	</div>
+
+		<div class="row">
+			<h1 class="items">Second box</h1>
+		</div>
+
+		<div class="row">
+			<h1 class="items">hird box</h1>
+		</div>
+
+ 	</div>
+
+
+	
+
+</body>
+</html> -->
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+	
+
+
+</body>
+</html>
+
+<!-- 8<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Weather App</title>
+		<link rel="shortcut icon" href="assets/favicon.svg" type="image/x-icon" />
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<div class="preloader">
+			<img src="assets/bars.svg" alt="loading icon" />
+		</div>
+		<div class="card">
+			<div class="search">
+				<input type="text" class="search-bar" placeholder="Search" />
+				<button>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						class="icon icon-tabler icon-tabler-search"
+						width="20"
+						height="20"
+						viewBox="0 0 24 24"
+						stroke-width="1.5"
+						stroke="#2c3e50"
+						fill="none"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+					>
+						<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+						<circle cx="10" cy="10" r="7" />
+						<line x1="21" y1="21" x2="15" y2="15" />
+					</svg>
+				</button>
+			</div>
+			<div class="weather loading">
+				<h1 class="city"></h1>
+				<h2 class="temperature"></h2>
+				<div class="container">
+					<img src="" alt="" class="weather-icon" />
+					<div class="description"></div>
+				</div>
+
+				<div class="humidity"></div>
+				<div class="wind-speed"></div>
+			</div>
+		</div>
+
+		<script src="script.js" defer></script>
+	</body>
+</html> -->
+
+
+
+
+<!-- 'use strict';
+
+// On loading functionality
+
+const preloader = document.querySelector('.preloader');
+window.addEventListener('load', function () {
+	preloader.style.display = 'none';
+});
+
+// OpenWeather API
+const city = document.querySelector('.city');
+const weatherIcon = document.querySelector('.weather-icon');
+const weatherDescription = document.querySelector('.description');
+const weatherTemperature = document.querySelector('.temperature');
+const weatherHumidity = document.querySelector('.humidity');
+const windSpeed = document.querySelector('.wind-speed');
+const weatherContainer = document.querySelector('.weather');
+
+const searchBtn = document.querySelector('button');
+const searchInput = document.querySelector('.search-bar');
+
+let weather = {
+	apikey: 'f177b7276f6ac51707c01e1dbcab024f',
+	fetchWeather: function (city) {
+		fetch(
+			'https://api.openweathermap.org/data/2.5/weather?q=' +
+				city +
+				'&units=metric&appid=' +
+				this.apikey
+		)
+			.then((res) => res.json())
+			.then((data) => this.displayWeather(data));
+	},
+	displayWeather: function (data) {
+		const { name } = data;
+		const { description, icon } = data.weather[0];
+		const { temp, humidity } = data.main;
+		const { speed } = data.wind;
+		city.innerText = `Weather in ${name}`;
+		weatherIcon.src = `https://openweathermap.org/img/wn/${icon}.png`;
+		weatherDescription.innerText = description;
+		weatherTemperature.innerText = `${temp}°C`;
+		weatherHumidity.innerText = `Humidity: ${humidity}%`;
+		windSpeed.innerText = `Wind speed: ${speed} km/h`;
+		weatherContainer.classList.remove('loading');
+		weatherContainer.classList.remove('active');
+		document.body.style.backgroundImage =
+			"url('https://source.unsplash.com/1600x900/?" + name + "')";
+		document.body.style.backgroundSize = 'cover';
+		document.body.style.backgroundPosition = 'center';
+	},
+	search: function () {
+		this.fetchWeather(searchInput.value);
+		weatherContainer.classList.add('active');
+	}
+};
+
+searchBtn.addEventListener('click', () => {
+	weather.search();
+});
+
+searchInput.addEventListener('keyup', (e) => {
+	if (e.key === 'Enter') {
+		weather.search();
+	}
+}); -->

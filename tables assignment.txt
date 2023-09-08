@@ -1,0 +1,19 @@
+Tables Assignment.
+
+
+Write a list of food items using what we have learnt today (<Table>) and add
+add prices.
+
+
+Today's Class
+School Website
+
+<div> tag
+<image> tag
+<p> tag
+
+
+Assignement
+Download images of places you have been to and talk about
+
+

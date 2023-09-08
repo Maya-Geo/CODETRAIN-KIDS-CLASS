@@ -1,0 +1,183 @@
+
+contact
+
+import React from 'react';
+const Contact  = ({contact,index}) => {
+    return (
+        <div className='contact' key={index}>
+            <h3>Name: {contact.name}</h3>
+            <h3>Number: {contact.number}</h3>
+            <h3>Location: {contact.location}</h3><hr/>
+        </div>
+    );
+} 
+
+
+
+
+
+
+export default Contact;
+
+
+
+
+
+
+
+
+import React, { Component } from 'react';
+import '../Form.css';
+
+class ContactForm extends Component {
+    constructor(props){
+        super(props);
+        this.state ={
+            name : '',
+            number : '',
+            loction : '',
+        }
+    }
+
+
+
+
+
+    handleChange = (e)=>{
+        this.setState({ [e.target.name] : e.target.value})
+    };
+
+
+    handleSubmit = (e)=>{
+        e.preventDefault();
+
+        this.props.addContact(this.state)
+
+
+        this.setState({
+            name : '',
+            number : '',
+            location : ''
+        })
+
+        
+    }
+
+
+
+    render() {
+        return (
+            <div className="form">
+                <form onSubmit={this.handleSubmit}>
+                    <label htmlFor="name">Name</label><br/>
+                    <input type="text" name="name" value={this.state.name} 
+                    placeholder="Your Name" onChange={this.handleChange}/><br/>
+                    <label htmlFor="number">Phone Number</label><br/>
+                    <input type="tel" name="number" value={this.state.number} 
+                    onChange={this.handleChange} placeholder="Number"/><br/>
+                    <label htmlFor="location">Location</label><br/>
+                    <input type="text" name="location" value={this.state.location} 
+                    onChange={this.handleChange} placeholder="Your Location"/><br/>
+                    <button type="submit">Add Contact</button>
+                </form>
+            </div>
+        );
+    }
+}
+
+export default ContactForm;
+
+
+
+app.js
+
+
+import Contact from './components/Contact';
+import ContactForm from './components/ContactForm'
+
+import React, { Component } from 'react';
+
+class App extends Component {
+  constructor(props){
+    super(props);
+    this.state ={ contacts :[]}
+  }
+  
+  handleAddContact = (newContact) => {
+    this.setState({ 
+        contacts: [...this.state.contacts,newContact] 
+    })
+  }
+
+
+  render() {
+   
+    const contacts = this.state.contacts.map((contacts,index) =>{
+            return(
+              <Contact contact={contacts} index={index}/>
+            )
+    })
+
+
+
+    return (
+      <>
+         <ContactForm addContact={this.handleAddContact}/>
+         {contacts}
+      </>
+    );
+  }
+}
+
+export default App;
+
+
+css
+.form{
+    font-family: 'Ubuntu', sans-serif;
+    background-color: rgb(228, 245, 245);
+    box-shadow: 1px 2px 5px  rgb(61, 59, 61);
+    align-items: center;
+    text-align: center;
+    border:none;
+    border-radius: 10px;
+    padding: 50px 100px;
+    margin: 50px 400px;
+    margin-bottom: 100px;
+}
+
+input{
+    width: 100%;
+    border: none;
+    background-color: rgb(228, 245, 245);
+    border-bottom: 1px solid rgb(98, 51, 160);
+    border-radius: 3px;
+    margin: 15px 0px;
+    padding: 10px 10px;
+    font-size: 16px;
+}
+input:focus{
+    outline: none;
+    background-color: #d2b5ee2a;
+}
+
+label{
+    font-size: 25px;
+    font-family: inherit;
+    color: rgba(76, 41, 121, 0.788);
+}
+
+button{
+    margin-top: 35px;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 3px;
+    font-size: 20px;
+    background-color: #ac67ece8;
+    cursor: pointer;
+    color: white;
+}
+button:active{
+    background-color: lightpink;
+    transform: scale(0.9);
+}

@@ -1,0 +1,10 @@
+useContext Tutorial(creating a context to share between component)
+
+Creats a new file call is useContext.js(import createContext inside react;)
+Wrap (UserContext.Provider) pass a value"" inside of the UserContext.Pro around your route Children component
+
+
+useReducer
+
+
+

@@ -1,0 +1,14 @@
+display inline and dispay block
+
+codetrain kids
+
+
+
+ Golden Sunbeam 
+Variables and Arithmetic Operators
+-Arithetic takes numerical values as their operands and return a single numerical value
+
+Intergers- floating point numbers without fraction.They can either be poistion or negative
+floating point numbers-They have decimal point and decimal places
+doubles
+

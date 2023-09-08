@@ -1,0 +1,4 @@
+Start with the the Html Structure Remember to give it a Title.....
+Add an <H1> to <H6> tag (use any) <P>tag  an  <a>tag  <img> tag
+to create a website (Write about a book you read should be short )
+
